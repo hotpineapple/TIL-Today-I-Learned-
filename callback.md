@@ -2,9 +2,8 @@
 > 자바스크립트의 비동기처리를 하기 위한 콜백
 ## 비동기 처리가 필요한 이유
 
-## 콜백
 
-### 콜백기본
+## 콜백기본
 
 아래의 lazyFunction 함수는 콜백의 동작을 쉽게 이해하기 위해 `setTimeout(callback,delay)`을 이용하여 억지로 만든 함수로서,
 
@@ -18,8 +17,8 @@ lazyFunction 을 호출하는 개발자는 lazyFunction이 어떻게 구현되�
 
 그러나 반드시 lazyFunction에서 생성된 result 값을 이용해야만 한다. 
 
-#### 잘못된 예시
-```
+### 잘못된 예시
+```javascript
 let username = 'default';
 function lazyFunction(userid) {
   setTimeout(() => {
@@ -35,8 +34,8 @@ console.log('hello ' + username);
 #### 실제 결과
 `hello default`
 
-#### 옳은 예시
-```
+### 옳은 예시
+```javascript
 let username = 'default';
 function lazyFunction(userid, callback) {
   setTimeout(() => {
@@ -59,7 +58,7 @@ lazyFunction((name) => { console.log('hello ' + name) });
 
 여기서는 콜백함수의 구현부(console.log('hello ' + name))를 화살표 함수로 작성했지만 코드가 더 길고 복잡하며 다른 곳에서도 사용된다면 함수로 만들고 매개변수로 함수 이름만 전달할 수도 있다.
 
-```
+```javascript
 let username = 'default';
 function lazyFunction(userid, callback) {
   setTimeout(() => {
@@ -76,9 +75,9 @@ lazyFunction(greeting); // 이 때 소괄호()는 쓰지 않고 함수 이름만
 
 ```
 
-### 콜백 에러 핸들링
+## 콜백 에러 핸들링
 
-```
+```javascript
 let username = 'default';
 function lazyFunction(userid, callback) {
   setTimeout(() => {
@@ -89,8 +88,8 @@ function lazyFunction(userid, callback) {
   }, 5000);
 }
 ```
-
-```
+#### 호출 예시 1
+```javascript
 lazyFunction('jh1994', function(error, name) {
   if (error) {
     alert(`오류 발생: ${error}`);
@@ -99,9 +98,10 @@ lazyFunction('jh1994', function(error, name) {
   }
 });
 ```
-결과
+#### 결과
 `hello zee`
-```
+#### 호출 예시 2
+```javascript
 lazyFunction('jihye19940314', function(error, name) {
   if (error) {
     alert(`오류 발생: ${error}`);
@@ -111,7 +111,7 @@ lazyFunction('jihye19940314', function(error, name) {
 });
 
 ```
-결과
+#### 결과
 `오류 발생: Error: jh19940314에 해당하는 유저 이름이 없습니다..`
 
 ### 콜백 마무리
@@ -121,13 +121,7 @@ lazyFunction('jihye19940314', function(error, name) {
 
 ---
 
-## 프라미스
 
-프라미스는 제작코드 (위 예시에서는 lazyFunction) 와 소비코드(위 예시에서는 console.log('hello ' + result); )를 이어주는 자바스크립트 객체이다.
-
-let promise = new Promise(function(resolve, reject) {
-  // executor 
-});
 
 
 
