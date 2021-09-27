@@ -1,4 +1,4 @@
-# TIL-Today-I-Learned-
+# Today I Learned
 
 ## Content
 
@@ -9,7 +9,14 @@
 ### 2. TypeScript
 1. 유틸리티 타입
 
-### 3. RxJS
-1. map
+### 3. 설계, 디자인 패턴
+1. 옵저버 패턴 / Pub-Sub
+2. MVVM / MVP / MVI
 
-### 4. socket.io
+### 4. RxJS
+0. 함수형 프로그래밍
+1. map
+2. concat
+3. reduce
+
+### 5. socket.io
