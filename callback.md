@@ -5,7 +5,7 @@
 
 ## 콜백기본
 
-아래의 lazyFunction 함수는 콜백의 동작을 쉽게 이해하기 위해 `setTimeout(callback,delay)`을 이용하여 억지로 만든 함수로서,
+아래의 lazyFunction 함수는 콜백의 동작을 쉽게 이해하기 위해 `setTimeout(callback,delay)`을 이용하여 임의로 완료되기까지 시간을 늘인  함수로서,
 
 아이디를 매개변수로 받아서 호출된 시점으로 부터 5초가 지나면 name 값을 'zee'로 세팅하는 함수이다.
 
@@ -13,9 +13,9 @@
 
 이 함수의 실행과정에서 생성된 결과값을 이용하려는 시도는 이 함수가 완전히 실행 완료된 후에 실행되어야 할 것이다.
 
-lazyFunction 을 호출하는 개발자는 lazyFunction이 어떻게 구현되어있는지 모르기 때문에 언제 완료되는지도 알 수 없다.
-
-그러나 반드시 lazyFunction에서 생성된 result 값을 이용해야만 한다. 
+### 전제조건
+* lazyFunction 을 호출하는 개발자는 lazyFunction이 (어떻게 구현되어있는지 모르기 때문에) 언제 완료되는지도 알 수 없다.
+* 그러나 반드시 lazyFunction에서 생성된 result 값을 이용해야만 한다. 
 
 ### 잘못된 예시
 ```javascript
@@ -118,8 +118,6 @@ lazyFunction('jihye19940314', function(error, name) {
 
 여러 개의 비동기 처리가 중첩될 경우 코드가 오른쪽으로 계속 밀리는 멸망의 피라미드 혹은 콜백 지옥이 발생하는데, 이는 프라미스를 사용해서 해결가능하다.
 
-
----
 
 
 
