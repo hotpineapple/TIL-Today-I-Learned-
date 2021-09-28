@@ -1,4 +1,4 @@
-이전 내용: [콜백](https://github.com/hotpineapple/TIL-Today-I-Learned-/edit/main/01_callback.md)
+이전 내용: [콜백](https://github.com/hotpineapple/TIL-Today-I-Learned-/blob/main/01_callback.md)
 
 ## 프라미스 기본
 
