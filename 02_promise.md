@@ -118,4 +118,8 @@ promise.then은 값 또는 새로운 프라미스를 반환한다. 그리고 이
 프라미스에서 throw error 하면 이는 자동으로 reject(error) 로 처리되어 catch 핸들러를 실행시킨다.
 
 ## 마이크로 태스크
-프라미스를 즉시 이행하더라도 제작코드는 핸들러 실행 이후에 실행된다. 
+프라미스를 즉시 이행하더라도 제작코드는 핸들러 실행 이후에 실행된다.
+
+### 참고 
+* [모던자바스크립트](https://ko.javascript.info/promise-basics)
+* [Graceful asynchronous programming with Promises](https://developer.mozilla.org/ko/docs/Learn/JavaScript/Asynchronous/Promises)
