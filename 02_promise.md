@@ -1,12 +1,12 @@
 이전 내용: [콜백](https://github.com/hotpineapple/TIL-Today-I-Learned-/edit/main/callback.md)
 
-## 프라미스
+## 프라미스 기본
 
 프라미스는 제작코드 (이전 예시에서는 lazyFunction 함수) 와 소비코드(이전 예시에서는 console.log('hello ' + result); 또는 greeting 함수)를 이어주는 자바스크립트 객체이다.
 
 사용법은 아래와 같다.
 
-### 프라미스 선언과 
+### 프라미스 선언과 핸들러를 이용한 사용
 ```javascript
 let promise = new Promise(function(resolve, reject) {
   // executor(제작코드)
@@ -27,6 +27,7 @@ executor는 resolve나 reject 중 하나를 반드시 호출해야 하며, 이�
 
 지금까지 프라미스를 이용한 제작코드 작성에 대하여 알아보았다. 제작코드를 함수로 분리해서 프라미스를 반환하는 제작함수로 구현할 수도 있다.
 
+아래 코드는 프라미스를 반환하는 제작함수와 이 함수의 실행 후 그 결과를 이용하는 소비코드를 구현한 것이다. 콜백 방식과 비교하여 보다 더 직관적임을 확인할 수 있다.(호출 -> 호출 결과로 무엇을 할지 구현) 
 ```javascript
 function lazyFunction(userid) {
   return new Promise(function(resolve, reject) {
@@ -38,10 +39,12 @@ function lazyFunction(userid) {
      }, 5000);
   }
 };
+
+lazyFunction('jh1994')
+  .finally(() => {console.log('프라미스 처리 완료(성공이든 실패든 관계없이)')})
+  .then(value => {console.log('hello ' + value)})
+  .catch(error => {alert(error)})
 ```
-
----
-
 
 소비코드는 프라미스 핸들러를 통해 제작코드의 결과값, 즉 result 값를 사용할 수 있다.
 
@@ -72,7 +75,7 @@ promise.then(
 #### 결과
 `done`
 
-### 호출 예시 2  
+### 프라미스 사용 예시 2  
 ```javascript
 let promise = new Promise(function(resolve, reject) {
   setTimeout(() => reject(new Error("에러 발생!")), 1000);
@@ -85,3 +88,24 @@ promise.then(
 ```
 #### 결과
 `에러 발생!`
+
+### catch 핸들러
+
+```javascript
+let promise = new Promise(function(resolve, reject) {
+  setTimeout(() => reject(new Error("에러 발생!")), 1000);
+});
+
+promise.catch(
+  error => alert('프라미스 거부: ' + error) 
+);
+```
+
+### finally 핸들러
+finally 핸들러는 인수를 갖지 않는다. 그리고 결과를 다음 핸들러로 전달한다.
+
+---
+
+## 프라미스 체이닝
+
+promise.then을 호출하면 프라미스를 반환된다. 그러므로 이 실행문 뒤에 또 다른 프라미스 핸들러를 붙일 수 있다. 
