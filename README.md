@@ -21,3 +21,5 @@
 3. reduce
 
 ### 5. socket.io
+
+### 6.  인증, 웹 토큰, JWT(Json Web Token)
