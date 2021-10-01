@@ -27,14 +27,16 @@ try {
   alert('rejected, error: ' + error);
 }
 ```
-#### await 주의
+#### await 주의할 점
 await 은 최상위 레벨 코드에서는 동작하지 않는다. 이 경우에는
 * then/catch 핸들러를 쓰거나,
 * await 이 필요한 코드를 async 익명함수로 감싸는 방법을 사용할 수 있다.
 
 
-### return awit, return, awit의 차이
-
+### return await, return, await의 차이
+* return : 프라미스 리젝트 처리 못함. 호출한 곳으로 프라미스(작업중인 상태의)를 그래돌 넘김
+* await : 프라미스 처리하고 끝
+* return await : 프라미스 처리하고 결과를 호출한 곳으로 리턴함
 
 
 ### 참고 링크
