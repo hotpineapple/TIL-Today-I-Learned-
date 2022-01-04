@@ -1,4 +1,4 @@
-# haper 1. Basics - Unit 1. Introduction
+# Chaper 1. Basics - Unit 1. Introduction
 
 ## 1. HTTP
 
