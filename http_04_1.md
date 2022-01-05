@@ -1,0 +1,88 @@
+# Chapter 1. Basics - unit 4. Managing connection - section 0 ~ 1
+
+## 0. 사전 점검
+
+- 소켓이란?
+    - 네트워크 소켓은 컴퓨터 네트워크를 경유하는 프로세스 간 통신의 종착점이다. 오늘날 컴퓨터 간 통신의 대부분은 인터넷 프로토콜을 기반으로 하고 있으므로, 대부분의 네트워크 소켓은 인터넷 소켓이다.
+    - an interface between application and network(응용 프로그램에서 TCP/IP를 이용하는 창구 역할)
+    - OS 라는 우체통의 입구와 같음.(시스템내에 내장 되어 있기 때문에 운영체제에 종속적이다.)
+    - 종류
+        - 소켓 스트림 (TCP)
+        - 소켓 데이터그램 (UDP)
+    - 소켓 프로그래밍
+        - 컴퓨터 네트워크를 대상으로 하는 입출력 행위를 다루는 ****프로그래밍을 **네트워크** **프로그래밍** 또는 **소켓 프로그래밍**이라고 한다.
+        - Socket API
+            
+            : OS가 제공하는 시스템 콜 중 네트워크 관련 기능을 하는 시스템 콜의 집합
+            
+            - Creation and Setup
+            - Establishing a Connection (TCP)
+            - Sending and Receiving Data
+            - Tearing Down a Connection (TCP)
+    - +) 웹소켓은 뭐지?
+        - 웹소켓은 HTTP 레이어에서 작동하는 소켓으로 일반 소켓과는 레이어가 다르다.
+        - 크로스 브라우저 지원 등 사용하기 편하게 해주는 웹소켓 프레임워크인 [Socket.io](http://socket.io/) 가 있다.
+        
+- TCP
+    - 특징
+        - point-to-point : 소켓 한쌍을 위해서만 동작
+        - **reliable(신뢰성)** : 애플리케이션에서 내려온 메세지가 에러없이 유실되지 않고 전달됨 (TCP의 가장 큰 특징)
+        - in-order byte stream : 애플리케이션에서 내려온 메세지 순서대로 전달됨
+        - pipelined : 한꺼번에 많은 메세지가 전달 (window 사이즈 만큼)
+        - full duplex data : sender이자 receiver
+    - TCP 신뢰성(Reliablity)을 구성해주는 대표적인 방법
+        - **Flow Control (흐름제어)** : 송신측과 수신측의 데이터 처리 속도 차이를 해결하기 위한 기법
+        - **Congestion Control (혼잡제어)** : 송신측의 데이터 전달과 네트워크의 데이터 처리 속도 차이를 해결하기 위한 기법
+    - TCP Reliable Data Transfer
+        
+        하나의 소켓에 send buffer, receive buffer, timer 한개 존재 (실제 tcp는 sender이면서 receiver, seq, ack 각각 존재하는 이유)
+        
+        - receive buffer 역할 : in-order-delivery 지원
+        - send buffer 역할 : 재전송을 위한 버퍼 (혹시라도 재전송해야하는 경우를 위해 send buffer에 잠시 보관해놨다가 확실히 전송이 확인되면 지움)
+        - 비효율적인 점 : 데이터 유실될 경우, timer가 expire될 때 재전송이 일어남 - margin까지 있어 굉장히 긴 시간 소요
+        - **(TCP fast retransmit)** 어떻게 하면 timer expire 되기 전에 유실을 판단할 수 있을까?
+            
+            → receiver가 같은 데이터에 대해 동일한 3개의 ACK를 수신한다면, ACK를 수신한 데이터 이후에 전송된 세그먼트는 손실된 것으로 간주함.
+            
+
+## 1. TCP 커넥션
+
+- TCP 커넥션이 맺어지면 클라이언트와 서버 간에 주고받는 메시지들은 손실 혹은 손상되거나 순서가 바뀌지 않고 안전하게 전달된다.
+
+### 1.2 TCP 세그먼트와 IP 패킷(데이터그램)
+
+- HTTP 가 메시지를 전송하고자 할 경우
+    - 현재 연결되어있는 TCP 커넥션을 통해서 메시지 데이터의 내용을 순서대로 보낸다
+    - TCP 는 세그먼트 단위로 데이터 스트림을 잘게 나눈다
+    - 각 세그먼트를 IP 패킷에 담아 네트워크 레이어로 전달한다
+    - IP 패킷의 구성
+        - IP 패킷 헤더(보통 20바이트)
+        - IP 패킷 데이터
+            - TCP 세그먼트 헤더(보통 20바이트)
+            - TCP 세그먼트 데이터
+
+### 1.3 TCP 커넥션 유지하기
+
+- TCP 커넥션의 식별을 위한 네 가지 값
+    - 발신지 IP주소
+    - 발신지 포트번호
+    - 수신지 IP 주소
+    - 수신지 포트번호
+
+### 1.4 TCP 소켓 프로그래밍
+
+- 운영체제는 애플리케이션의 TCP 커넥션의 생성과 관련된 여러 기능을 제공
+- 특히 소켓 API 를 통해 TCP endpoint 데이터 구조를 생성하고 원격 서버의 TCP endpoint 에 그 데이터 구조를 연결하여 데이터 스트림을 읽고 쓸 수 있다.
+- 기본적인 네트워크 프롴토콜의 핸드셰이킹과 TCP 데이터 스트림과 IP 패킷 간 분할 및 재조립에 대한 세부사항은 숨긴다.
+- 소켓 API 종류
+    - socket() : 소켓 생성
+    - bind : 소켓에 로컬 포트번호와 인터페이스 할당
+    - connect : 로컬 소켓과 원격 호스트/포트 사이 커넥션 생성
+    - listen : 로컬소켓에 커넥션을 받아들일 것을 허용함을 표시
+    - accept : 로컬 포트에 커넥션 맺기를 기다림
+    - read : 소켓으로부터 버퍼에 데이터 읽기 시도
+    - write : 소켓으로부터 버퍼에 데이터 쓰기 시도
+    - close : TCP 커넥션을 완전히 끊음
+    - shutdown : TCP 커넥션의 입출력만 닫음
+    - getsockopt : 내부 소켓 설정 옵션값 읽기
+    - setsockopt : 내부 소켓 설정 옵션값 변경
