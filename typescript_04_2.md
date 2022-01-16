@@ -72,7 +72,7 @@
             ): T {
               return {
                 ...node,
-                value: f(node.value)
+                value: f(node.value) //(*)
               };
             }
             
@@ -88,7 +88,9 @@
             console.log(b1);
             console.log(c1);
             ```
-            
+            * 그냥 T 라고 쓰면 `(*)` 에서 컴파일 오류
+            * T 대신 TreeNode 라고 쓰면 b1.isLeaf 나 c1.children 컴파일 오류
+         
     - 제네릭타입 기본값
         - 기본값을 사용할 수 있음
 
