@@ -62,6 +62,10 @@
             2. 말단이 아닌 노드: 자식노드(children)
             3. 공통 : 값(value)
             ```tsx
+            type TreeNode = { value: string };
+            type LeafNode = TreeNode & { isLeaf: true };
+            type InnerNode = TreeNode & { children: [TreeNode] | [TreeNode, TreeNode] } // 한 개나 두 개의 자식을 가리킬 수 있음
+            
             function mapNode<T extends TreeNode>(
               node: T,
               f: (value: string) => string
@@ -71,6 +75,18 @@
                 value: f(node.value)
               };
             }
+            
+            let a: TreeNode = {value: 'a'};
+            let b: LeafNode = {value: 'b', isLeaf: true};
+            let c: InnerNode = {value: 'c', children: [b]};
+
+            let a1 = mapNode(a, n => n.toUpperCase());
+            let b1 = mapNode(b, n => n.toUpperCase());
+            let c1 = mapNode(c, n => n.toUpperCase());
+
+            console.log(a1);
+            console.log(b1);
+            console.log(c1);
             ```
             
     - 제네릭타입 기본값
