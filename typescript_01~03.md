@@ -199,6 +199,32 @@ function trueOrNull(isTrue: boolean): Returns {
 }
 ```
 
+### 튜플
+* 길이가 고정되었고 각 인덱스의 타입이 알려진 배열의 일종
+* 다른 타입과 달리 선언할 때 타입을 항상 명시해야 함
+* 순수 배열보다 안전성을 높일 수 있음
+
+```tsx
+let trainFares: [number, number?][] = [
+	[3.75],
+	[8.25, 7.70],
+	[10.50]
+]
+
+let moreTrainFares: ([number] | [number, number])[] = [
+	// ...
+]
+
+// 최소 한 개의 요소를 갖는 배열
+let friends: [string, ...stirng[]] = ['Sara', 'Tali', 'Chole'];
+
+// 이형(heterogeneous) 배열
+let list: [number, boolean, ...string[]] = [1,false,'a','b','c']; 
+```
+* readonly 를 이용하여 읽기 전용 배열과 튜플을 만들 수 있음
+* 조금만 바뀌어도 원래 배열을 복사하므로 주의하지 않으면 성능이 느려질 수 있음
+* 불변 배열을 자주 사용해야 한다면 immutable 같은 라이브러리를 고려하는 것을 권장함
+
 ### enum
 
 - 열거형을 안전하게 사용하는 방법은 까다로우므로 사용하지 않는 것을 권장
