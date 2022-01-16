@@ -67,7 +67,7 @@
             type InnerNode = TreeNode & { children: [TreeNode] | [TreeNode, TreeNode] } // 한 개나 두 개의 자식을 가리킬 수 있음
             
             function mapNode<T extends TreeNode>(
-              node: T,
+              node: T, (**)
               f: (value: string) => string
             ): T {
               return {
@@ -89,7 +89,7 @@
             console.log(c1);
             ```
             * 그냥 T 라고 쓰면 `(*)` 에서 컴파일 오류
-            * T 대신 TreeNode 라고 쓰면 b1.isLeaf 나 c1.children 컴파일 오류
+            * T 대신 TreeNode 라고 쓰면 `b1.isLeaf` 나 `c1.children`에서 컴파일 오류(`(**)`에서 타입정보 날아가고 그냥 TreeNode로 매핑되어서)
          
     - 제네릭타입 기본값
         - 기본값을 사용할 수 있음
