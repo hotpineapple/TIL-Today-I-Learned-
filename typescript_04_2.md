@@ -64,7 +64,7 @@
             ```tsx
             type TreeNode = { value: string };
             type LeafNode = TreeNode & { isLeaf: true };
-            type InnerNode = TreeNode & { children: [TreeNode] | [TreeNode, TreeNode] } // 한 개나 두 개의 자식을 가리킬 수 있음
+            type InnerNode = TreeNode & { children: [TreeNode] | [TreeNode, TreeNode] } // 한 개나 두 개의 자식을 가리킬 수 있음(튜플 문법)
             
             function mapNode<T extends TreeNode>(
               node: T, (**)
