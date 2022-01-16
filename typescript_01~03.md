@@ -210,9 +210,11 @@ let trainFares: [number, number?][] = [
 	[8.25, 7.70],
 	[10.50]
 ]
-
+// 위와 아래 코드는 같게 동작함
 let moreTrainFares: ([number] | [number, number])[] = [
-	// ...
+	[3.75],
+	[8.25, 7.70],
+	[10.50]
 ]
 
 // 최소 한 개의 요소를 갖는 배열
