@@ -299,3 +299,28 @@
         event.target // HTMLElement 타입 <- OK
     }
     ```
+    
+    #### +) union 타입 보충정리
+    ```tsx
+    type A = {
+        a: {a: number, b: number}
+        b: string;
+    }
+
+    type B = {
+        a: {a: number};
+        b: number;
+    }
+
+    type Union = A | B;
+
+    function handle(u: Union) {
+        if(typeof u.b === 'string')
+            console.log('A type');
+        else 
+            console.log('B type');
+    }
+
+    const u: Union = {a: {a: 1, b: 1}, b: 1};
+    handle(u);
+    ```
