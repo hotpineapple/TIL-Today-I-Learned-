@@ -264,8 +264,8 @@
     
     - `target` 이 정제되지 않은 이유
         - `handleBad` 함수가 `UserEvent` 타입의 매개변수를 받는다는 것은
-        - `UserTextEvent` 나 `UserMouseEvent` 만 전달할 수 있다는 의미가 아님
-        - `UserTextEvent | UserMouseEvent` 타입을 전달할 수도 있음
+            - `UserTextEvent` 나 `UserMouseEvent` 만 전달할 수 있다는 의미가 아님
+            - `UserTextEvent | UserMouseEvent` 타입을 전달할 수도 있음
         - 유니온의 멤버가 서로 중복될 수도 있음
         - -> 더 안정적인 방법이 필요!
         - **리터럴 타입**(아래 코드에서는 문자열 리터럴)**을 이용**해 유니온 타입이 만들어낼 수 있는 *각각의 경우*를 `태그(tag)` 하는 방식으로 해결 가능
