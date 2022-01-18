@@ -3,11 +3,11 @@
 ## Content
 
 ### 1. JavaScript
-1. 화살표 함수
-2. 콜백, 프라미스
+1. 콜백과 프라미스, async/await 키워드
+2. 배열
 3. 클로저
 4. 제너레이터와 반복자
-5. map, filter
+5. 클래스
 * 참고: [모던 JavaScript 튜토리얼](https://ko.javascript.info)
 
 ### 2. TypeScript
@@ -35,6 +35,7 @@
 6. 프락시
 7. 캐시
 * 참고: HTTP 완벽 가이드
+* 
 ### 6. web socket
 
 ### 7. 인증, 웹 토큰, JWT(Json Web Token)
