@@ -183,6 +183,7 @@
         - readonly 한정자
             - 특정 필드를 읽기 전용으로 정의
             - 객체 프로퍼티에 const 를 적용한 효과
+            - https://velog.io/@bigbrothershin/React-%EC%B4%88%EA%B8%B0-%EC%84%A4%EC%A0%95-%EC%9B%B9%ED%8C%A9-%EC%84%A4%EC%A0%95-2020.2.5
 
 ### union
 
