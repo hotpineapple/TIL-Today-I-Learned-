@@ -4,10 +4,10 @@
 
 ### 1. JavaScript
 1. 콜백과 프라미스, async/await 키워드
-2. 배열
-3. 클로저
+2. 배열 메서드
+3. 클로저, 렉시컬 환경
 4. 제너레이터와 반복자
-5. 클래스
+5. 믹스인
 * 참고: [모던 JavaScript 튜토리얼](https://ko.javascript.info)
 
 ### 2. TypeScript
