@@ -201,7 +201,39 @@
     ```
     
 - 사용자 정의 타입 안전장치
-    - 
+    - 타입 정제의 한계
+    ```tsx
+        function isString(a: unknown): boolean {
+           return typeof a === 'string';
+        }
+
+        console.log(isString('a')); // true
+        console.log(isString([7])); // false
+
+        function parseInput(input: string | number) {
+           let formattedInput: string;
+           if(isString(input)) formattedInput = input.toUpperCase(); // Property 'toUpperCase' does not exist on type 'number'
+        }
+
+        // 해결1
+        function parseInput(input: string | number) {
+           let formattedInput: string;
+           if(typeof input === ‘string’) formattedInput = input.toUpperCase(); 
+        }
+
+        // 해결2
+        function isString(a: unknown): a is string {
+           return typeof a === 'string';
+        }
+
+        console.log(isString('a')); // true
+        console.log(isString([7])); // false
+
+        function parseInput(input: string | number) {
+           let formattedInput: string;
+           if(isString(input)) formattedInput = input.toUpperCase();
+        }
+    ```
 
 ## 5. 조건부 타입
 
