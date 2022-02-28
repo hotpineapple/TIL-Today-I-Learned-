@@ -151,6 +151,18 @@ git reset --hard origin/브랜치이름
 
 `git diff --staged`
 
-### 깃 커맨드 히스토리 확인하기
+### 깃 q히스토리 확인하기
 
 `git log`
+
+### 깃 최신 상태 확인하기
+`git show`
+
+### 깃 히스토리 그래프로 확인하기
+`git log --all --graph`
+
+### 현재 커맨드 결과화면에서 나가기
+`q`
+
+### 커서이동
+`ctrl` + `좌,우 화살표`, `home`, `end`
