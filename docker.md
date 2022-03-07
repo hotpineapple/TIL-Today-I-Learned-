@@ -14,3 +14,7 @@
 ```docker
 
 ```
+
+### 참고
+[Dockerfile best practices](https://sysdig.com/blog/dockerfile-best-practices/)
+[인프런 초보를 위한 도커 안내서(subicura)](https://www.inflearn.com/course/%EB%8F%84%EC%BB%A4-%EC%9E%85%EB%AC%B8/dashboard)
