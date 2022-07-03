@@ -108,4 +108,4 @@
 - 기존의 HTTP/1, HTTP/2와는 다르게 UDP 기반의 프로토콜인 **`QUIC`**을 사용하여 통신하는 프로토콜
 - 헤드오브라인 블록킹이라는 HTTP/2의 주된 문제를 해결하는 것이 목적
     - 네트워크에서 같은 큐에 있는 패킷이 첫번째 패킷에 의해 지연될 때 발생하는 성능 저하 현상
-- [참고]([https://velog.io/@dnr6054/HOL-Blocking](https://velog.io/@dnr6054/HOL-Blocking))
+- [참고](https://velog.io/@dnr6054/HOL-Blocking)
