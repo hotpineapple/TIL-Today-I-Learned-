@@ -33,9 +33,23 @@
     - HTTP 메시지 파싱, 메서드 처리가 간편
   - 서블릿 인터페이스를 알아야 함(*)
   - 요쳥마다 서블릿 생성하여 사용 -> 공통로직 중복(**)
+    - Front Controller 패턴으로 해결 가능 
 - Spring Web MVC
   - 자바 코드만 가지고 구현 가능(*)
-  - 프론트컨트롤러 패턴 사용
-    - 서블릿 하나만 사용(=Dispatcher Servlet)
+  - Front Controller 패턴 + 역할 분담
+    - 서블릿 하나만 사용(=Dispatcher Servlet, 프론트 컨트롤러)
     - 공통로직 처리 가능(**)
+  - Handelr mapping
+  - Handler adapter
+  - View resolver
   - => 비즈니스 로직에 집중할 수 있음!
+
+## Spring Web MVC
+- 웹 트랜잭션 동작
+  - Front Controller: 웹 요청 전달
+  - Handelr mapping: controller 반환
+  - Front Controller: controller 호출
+  - Handler adapter: Model and View 반환
+  - Front Controller: view 요청
+  - View resolver: view 반환
+  - Front Controller: 웹 응답
