@@ -53,3 +53,10 @@
   - Front Controller: view 요청
   - View resolver: view 반환
   - Front Controller: 웹 응답
+ 
+ ### Dispatcher Servlet
+ - 구성
+  - Servlet Web application context: 웹 요청 관련 설정
+  - Root Web application context: 서비스로직, repository(데이터, 모델관련) 설정
+ - 컨테이너는 이러한 설정을 토대로 빈을 생성하고 관리함(주입 등)
+ 
