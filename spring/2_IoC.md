@@ -6,8 +6,8 @@
 - 이 과정은 빈이 스스로 그 종속성의 인스턴스화 또는 종속성의 위치를 제어하는 것의 역전이다
   - 클래스의 direct construction 또는 Service Locator 패턴과 같은 메커니즘을 사용하여
 - 스프링 IoC 컨테이너의 기초 패키지
-  - The org.springframework.beans
-  - org.springframework.context packages
+  - org.springframework.beans
+  - org.springframework.context
 - BeanFactory interface
   - 모든 유형의 객체를 관리할 수 있는 고급 configuration 메카니즘을 제공함
 - ApplicationContext
@@ -30,7 +30,7 @@
   - 애플리케이션의 백본을 형성하고 Spring IoC 컨테이너에 의해 관리되는 객체.
   - Spring IoC 컨테이너에 의해 인스턴스화, 조립 및 관리되는 객체
     - 그렇지 않으면 빈은 애플리케이션에 있는 많은 객체 중 하나일 뿐임
-  - 빈과 이 빈들간의 종속성은 컨테이너에서 사용하는 구성 메타데이터에 반영됩니다.
+  - 빈과 이 빈들간의 종속성은 컨테이너에서 사용하는 configuration 메타데이터에 반영됩니다.
 
 ## 1.2. Container 개요
 - org.springframework.context.ApplicationContext 인터페이스
