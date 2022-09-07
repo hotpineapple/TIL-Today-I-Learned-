@@ -41,7 +41,7 @@
   - XML, Java annotations, or Java code로 나타낼 수 있음
   - 표현하는 것
     - 애플리케이션을 구성하는 객체
-  - 객체간의 풍부한 상호 종속성
+    - 객체간의 풍부한 상호 종속성
 - ApplicationContext 인터페이스의 Several implementations가 spring에서 제공됨
 - stand-alone applications에서는 ClassPathXmlApplicationContext or FileSystemXmlApplicationContext의 인스턴스를 만드는것이 보통
 - XML이 구성 메타데이터를 정의하는 전통적인 형식이지만 컨테이너가 메타데이터 형식으로 자바 어노테이션이나 코드를 사용하도록 지시할수도 있음
