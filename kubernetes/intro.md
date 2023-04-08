@@ -122,4 +122,7 @@ spec:
 - ingress controller in minikube
   - `minikube addons enable ingress`
 
-## helm
+## helm (chart)
+
+- package manager
+- template and default value for similar yaml files
