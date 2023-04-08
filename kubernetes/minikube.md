@@ -15,6 +15,8 @@
 - 클러스터 확인 `kubectl get po`
 - 로컬에서만 접근 가능한지
   ```text
-  Minikube is a tool that makes it easy to run Kubernetes locally. 
-  Minikube runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop for users looking to try out Kubernetes or develop with it day-to-day. 
+  I strongly advise to use a different Kubernetes solution as minikube is more a tool to experiment and develop as said in the official site:
+  "Minikube is a tool that makes it easy to run Kubernetes locally. 
+  Minikube runs a single-node Kubernetes cluster inside a Virtual Machine (VM) on your laptop for users looking to try out Kubernetes or develop with it day-to-day. "
+  Please take a look on other solutions like: Kubernetes.io: Production environment: Create cluster kubeadm
   ```
