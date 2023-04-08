@@ -125,4 +125,5 @@ spec:
 ## helm (chart)
 
 - package manager
+  - package: pod 별 statefulSet, etcd 등 컴포넌트 
 - template and default value for similar yaml files
