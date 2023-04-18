@@ -9,14 +9,14 @@
     - 디스플레이: 데스크톱의 그래픽 외부에서 작동
     - 사용자 -> 디스플레이 -> 그래픽인터페이스 -> 에뮬레이션 패키지 -> CLI
 
-## GNOME TERMINAL 단축키
+### GNOME TERMINAL 단축키
 - Ctrl + Alt + T : 열기
 - 복사/붙여넣기 : Ctrl + **Shift** + C/V
 
 ## 쉘 시작
 ### 어떤 쉘을 쓰는지
 - 사용자에 대한 기본 정보 /etc/passwd
-  - christine:x:501:501:Christine Bresnahan:/home/christine:/bin/bash
+  - `christine:x:501:501:Christine Bresnahan:/home/christine:/bin/bash`
   - 7개의 데이터 필드(콜론으로 구분)
   - 마지막 필드 /bin/bash가 사용자의 쉘 프로그램을 지정함
 
@@ -100,4 +100,4 @@
   - `tail -n X ${파일이름}`: 마지막 X줄
   - `head -X ${파일이름}`: 첫 X줄
   
-#### 침고: 리눅스 커맨드 쉘스크립트 바이블
+## 침고: 리눅스 커맨드 쉘스크립트 바이블
